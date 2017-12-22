@@ -73,6 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'interwovn_services.wsgi.application'
 
+CSRF_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
