@@ -19,5 +19,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     url(r'^send/', include('email_service.urls')),
+    url(r'^upload/', include('image_upload_service.urls')),
     url(r'^admin/', admin.site.urls),
 ]
