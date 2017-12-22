@@ -1,9 +1,10 @@
 from urllib.request import urlopen
 from urllib.parse import urljoin
-from user import User
+from .user import User
 import json
+import os
 
-BASE_URL = 'http://ec2-13-229-74-30.ap-southeast-1.compute.amazonaws.com:3000/users/'
+BASE_URL = os.environ.get("BASE_URL")
 
 def create_endpoint(user_id):
     data_url = urljoin(BASE_URL, str(user_id))

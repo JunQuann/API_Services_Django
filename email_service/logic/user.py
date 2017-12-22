@@ -10,9 +10,10 @@ class User(object):
 
     sender_email = Email("interwovn@gmail.com")
 
-    def __init__(self, name, email):
+    def __init__(self, name, email, template):
         self.name = name
         self.email = email
+        self.template = template
 
     def __str__(self):
         return "{}'s email address is {}".format(self.name, self.email)
@@ -23,6 +24,6 @@ class User(object):
         """
         to_email = Email(self.email)
         mail = Mail(from_email=sender_email, to_email=to_email)
-        mail.template_id(template_dict[template])
+        mail.template_id(template_dict[self.template])
         mail.personalizations[0].add_substitution(Substitution("-name-", self.name))
         return mail

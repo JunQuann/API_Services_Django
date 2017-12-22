@@ -3,7 +3,10 @@
 from email_service.logic import *
 
 # Create your views here.
-def send(request, user_id, template):
-    user = query.create_user(user_id)
-    to_send = user.create_mail()
-    sender.send_async(to_send)
+def send(request):
+    if request.method == "POST":
+        user_id = request.body["user"]
+        template = request.body["template"]
+        user = query.create_user(user_id, template)
+        to_send = user.create_mail()
+        sender.send_email(to_send)
