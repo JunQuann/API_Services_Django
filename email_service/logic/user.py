@@ -4,6 +4,12 @@ from sendgrid.helpers.mail import Email, Content, Substitution, Mail
 class User(object):
 
     # map the template id accordingly with the keywords of the API
+    template_dict = {
+        'welcome': {
+            'subject': 'Welcome to interwovn',
+            'template_id': "8b687c2a-7739-429a-ad81-466abb59b93d"
+        }
+    }
 
 
     def __init__(self, name, email, template):
@@ -18,17 +24,15 @@ class User(object):
         """
         Creates email to send to this users
         """
-        template_dict = {
-            'welc': 'A9325134'
-        }
 
         to_email = Email(self.email)
-        sender_email = Email("interwovn@gmail.com")
+        from_email = Email("interwovn@gmail.com")
+        subject = User.template_dict[self.template]['subject']
+        template_id = User.template_dict[self.template]['template_id']
+        content = Content("text/plain", "text")
+        mail = Mail(from_email, subject, to_email, content)
+        mail.personalizations[0].add_substitution(Substitution("-name-", "Example User"))
+        mail.personalizations[0].add_substitution(Substitution("-city-", "Denver"))
+        mail.template_id = template_id
 
-        mail = Mail(from_email=sender_email, to_email=to_email)
-
-        print(template_dict[self.template], self.name, self.email)
-
-        mail.template_id(template_dict[self.template])
-        mail.personalizations[0].add_substitution(Substitution("-name-", self.name))
         return mail
