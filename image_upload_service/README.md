@@ -4,7 +4,7 @@ To use this service, POST to /upload/ in multi-part form-data.
 
 Key for data is
 * user_id
-* auth_key
+* access_token
 * image
 
 ## Third Party Dependencies

@@ -1,6 +1,6 @@
 def parse(request):
     user_id = request.POST['user_id']
-    auth_key = request.POST['auth_key']
+    access_token = request.POST['access_token']
     image_file = request.FILES
     payload = {'user_id': user_id,
                'auth_key': auth_key,

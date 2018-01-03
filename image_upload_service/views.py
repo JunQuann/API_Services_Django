@@ -8,4 +8,4 @@ def index(request):
     if request.method == 'POST':
         payload = parse(request)
         image_url = upload(image=payload['image_file'], key=payload['user_id'])
-        return HttpResponse(put(image_url=image_url, auth_key=payload['auth_key'], user_id=payload['user_id']))
+        return HttpResponse(put(image_url=image_url, access_token=payload['access_token'], user_id=payload['user_id']))
