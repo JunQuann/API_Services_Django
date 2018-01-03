@@ -2,7 +2,8 @@
 This README entails everything that is needed to run this service.  
 To use this service, POST to /send/ with a JSON payload.
 
-```Format for JSON payload
+Format for JSON payload
+```
     {
         user: {
             user_id: ...
