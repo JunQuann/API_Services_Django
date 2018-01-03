@@ -1,7 +1,6 @@
 import os
 import sendgrid
 import urllib
-from sendgrid.helpers.mail import Email, Content, Substitution, Mail
 
 sg = sendgrid.SendGridAPIClient(apikey=os.environ.get("SENDGRID_API_KEY"))
 

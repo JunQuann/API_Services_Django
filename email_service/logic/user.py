@@ -22,7 +22,7 @@ class User(object):
 
     def create_mail(self):
         """
-        Creates email to send to this users
+        Creates email to send to this user
         """
 
         to_email = Email(self.email)
