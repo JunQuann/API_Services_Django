@@ -31,7 +31,7 @@ class User(object):
         template_id = User.template_dict[self.template]['template_id']
         content = Content("text/plain", "text")
         mail = Mail(from_email, subject, to_email, content)
-        mail.personalizations[0].add_substitution(Substitution("-name-", "Example User"))
+        mail.personalizations[0].add_substitution(Substitution("-name-", self.name))
         mail.personalizations[0].add_substitution(Substitution("-city-", "Denver"))
         mail.template_id = template_id
 
